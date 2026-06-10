@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Meridian Fellowship equips emerging civic leaders with mentorship, resources, and a durable community of practice.">
+  <meta name="description" content="The Meridian Fellowship gives emerging civic leaders the time, mentorship, and network to build stronger public life.">
   <title>The Meridian Fellowship</title>
   <style>
     :root {
-      --ink: #16211d;
-      --muted: #56635e;
-      --paper: #fbfaf6;
-      --mist: #edf1ec;
-      --pine: #17483f;
-      --teal: #2c8072;
-      --clay: #b85f45;
-      --gold: #d8a742;
+      --ink: #050505;
+      --paper: #f6f3ea;
       --white: #ffffff;
-      --line: rgba(22, 33, 29, 0.14);
-      --shadow: 0 24px 70px rgba(22, 33, 29, 0.14);
+      --muted: #68645c;
+      --rule: #050505;
+      --soft-rule: rgba(5, 5, 5, 0.18);
+      --accent: #b9472e;
     }
 
     * {
@@ -32,13 +28,8 @@
       margin: 0;
       color: var(--ink);
       background: var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.5;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.22;
     }
 
     a {
@@ -46,566 +37,469 @@
       text-decoration: none;
     }
 
-    .site-shell {
+    a:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.18em;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    blockquote {
+      margin-top: 0;
+    }
+
+    .page {
       min-height: 100vh;
-      overflow: hidden;
     }
 
     .nav {
-      position: fixed;
-      z-index: 10;
-      top: 0;
-      left: 0;
-      right: 0;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      padding: 18px clamp(20px, 4vw, 56px);
-      color: var(--white);
-      background: linear-gradient(180deg, rgba(9, 22, 19, 0.7), rgba(9, 22, 19, 0));
+      padding: 24px clamp(18px, 4vw, 56px);
+      border-bottom: 2px solid var(--rule);
+      background: var(--paper);
     }
 
     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 800;
+      font-size: clamp(1rem, 1.6vw, 1.35rem);
+      font-weight: 900;
+      text-transform: uppercase;
       letter-spacing: 0;
-    }
-
-    .brand-mark {
-      display: grid;
-      width: 36px;
-      height: 36px;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, 0.38);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.14);
-      font-size: 15px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: clamp(14px, 2.5vw, 32px);
-      font-size: 0.94rem;
-      font-weight: 700;
-    }
-
-    .nav-links a {
-      opacity: 0.9;
-    }
-
-    .nav-links a:hover {
-      opacity: 1;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 22px;
-      border: 1px solid transparent;
-      border-radius: 6px;
-      font-weight: 800;
-      line-height: 1;
-      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    .button-primary {
-      color: var(--ink);
-      background: var(--gold);
-      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
-    }
-
-    .button-secondary {
-      color: var(--white);
-      border-color: rgba(255, 255, 255, 0.46);
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-    }
-
-    .hero {
-      position: relative;
-      display: grid;
-      min-height: 92vh;
-      align-items: end;
-      padding: 120px clamp(20px, 4vw, 56px) 52px;
-      color: var(--white);
-      isolation: isolate;
-    }
-
-    .hero::before,
-    .hero::after {
-      position: absolute;
-      inset: 0;
-      content: "";
-      z-index: -1;
-    }
-
-    .hero::before {
-      background:
-        linear-gradient(90deg, rgba(8, 24, 21, 0.9) 0%, rgba(8, 24, 21, 0.66) 38%, rgba(8, 24, 21, 0.16) 76%),
-        linear-gradient(180deg, rgba(8, 24, 21, 0.2) 35%, rgba(8, 24, 21, 0.78) 100%),
-        url("assets/meridian-fellowship-hero.png") center / cover no-repeat;
-    }
-
-    .hero::after {
-      background: radial-gradient(circle at 18% 22%, rgba(216, 167, 66, 0.22), transparent 24%);
-      mix-blend-mode: screen;
-    }
-
-    .hero-content {
-      width: min(760px, 100%);
-      padding-bottom: clamp(12px, 5vh, 54px);
-    }
-
-    .eyebrow {
-      margin: 0 0 18px;
-      color: #f0c763;
-      font-size: 0.84rem;
+      gap: clamp(18px, 3vw, 42px);
+      font-size: 0.95rem;
       font-weight: 900;
-      letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 0.34fr);
+      gap: clamp(28px, 5vw, 70px);
+      min-height: 78vh;
+      padding: clamp(44px, 8vw, 104px) clamp(18px, 4vw, 56px);
+      border-bottom: 2px solid var(--rule);
     }
 
-    h1 {
-      max-width: 720px;
-      margin-bottom: 22px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(3.2rem, 8.5vw, 7.7rem);
-      font-weight: 700;
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 48px;
+    }
+
+    .intro {
+      max-width: 1000px;
+      font-size: clamp(2.7rem, 8vw, 8.9rem);
+      font-weight: 900;
       line-height: 0.92;
       letter-spacing: 0;
     }
 
-    .hero-copy {
-      max-width: 610px;
-      margin-bottom: 30px;
-      color: rgba(255, 255, 255, 0.88);
-      font-size: clamp(1.08rem, 2vw, 1.32rem);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .below-hero {
+    .hero-bottom {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      border-top: 1px solid rgba(255, 255, 255, 0.22);
-      background: rgba(8, 24, 21, 0.66);
-      backdrop-filter: blur(16px);
-    }
-
-    .metric {
-      min-height: 116px;
-      padding: 24px;
-      border-right: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .metric:last-child {
-      border-right: 0;
-    }
-
-    .metric strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--gold);
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
-      line-height: 1;
-    }
-
-    .metric span {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    section {
-      padding: clamp(64px, 9vw, 112px) clamp(20px, 4vw, 56px);
-    }
-
-    .section-inner {
-      width: min(1180px, 100%);
-      margin: 0 auto;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-      gap: clamp(36px, 6vw, 88px);
-      align-items: start;
-    }
-
-    .section-kicker {
-      margin-bottom: 16px;
-      color: var(--clay);
-      font-size: 0.82rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      margin-bottom: 22px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.35rem, 5vw, 4.6rem);
-      font-weight: 700;
-      line-height: 0.98;
-      letter-spacing: 0;
-    }
-
-    .lead {
-      color: var(--muted);
-      font-size: clamp(1.05rem, 1.6vw, 1.22rem);
-    }
-
-    .program-list {
-      display: grid;
-      gap: 14px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .program-list li {
-      display: grid;
-      grid-template-columns: 42px minmax(0, 1fr);
-      gap: 16px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .program-list li:first-child {
-      border-top: 1px solid var(--line);
-    }
-
-    .number {
-      display: grid;
-      width: 42px;
-      height: 42px;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--white);
-      background: var(--pine);
-      font-size: 0.9rem;
-      font-weight: 900;
-    }
-
-    .program-list h3 {
-      margin-bottom: 6px;
-      font-size: 1.15rem;
-    }
-
-    .program-list p {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .band {
-      background: var(--mist);
-    }
-
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-
-    .pillar {
-      min-height: 280px;
-      padding: 28px;
-      background: var(--paper);
-    }
-
-    .pillar-icon {
-      display: grid;
-      width: 46px;
-      height: 46px;
-      margin-bottom: 24px;
-      place-items: center;
-      border-radius: 50%;
-      color: var(--pine);
-      background: rgba(44, 128, 114, 0.14);
-      font-size: 1.35rem;
-      font-weight: 900;
-    }
-
-    .pillar h3 {
-      margin-bottom: 12px;
-      font-size: 1.3rem;
-    }
-
-    .pillar p {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    .quote-section {
-      color: var(--white);
-      background: var(--pine);
-    }
-
-    .quote-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.5fr);
-      gap: clamp(32px, 6vw, 80px);
+      grid-template-columns: minmax(0, 0.75fr) minmax(230px, 0.25fr);
+      gap: clamp(24px, 4vw, 60px);
       align-items: end;
     }
 
-    blockquote {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 4.8vw, 4.4rem);
-      line-height: 1.03;
-      letter-spacing: 0;
-    }
-
-    .quote-credit {
-      margin-top: 24px;
-      color: rgba(255, 255, 255, 0.72);
+    .hero-bottom p {
+      max-width: 740px;
+      margin-bottom: 0;
+      font-size: clamp(1.2rem, 2.2vw, 2.05rem);
       font-weight: 800;
     }
 
-    .application-box {
-      padding: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: var(--shadow);
+    .apply-link {
+      display: inline-flex;
+      justify-content: center;
+      min-height: 54px;
+      padding: 17px 24px;
+      border: 2px solid var(--rule);
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 0.95rem;
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
     }
 
-    .application-box h3 {
-      margin-bottom: 10px;
-      font-size: 1.35rem;
+    .apply-link:hover {
+      background: var(--paper);
+      color: var(--ink);
+      text-decoration: none;
     }
 
-    .application-box p {
+    .hero-aside {
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      border-left: 2px solid var(--rule);
+      padding-left: clamp(22px, 4vw, 42px);
+    }
+
+    .stamp {
+      width: min(210px, 100%);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--rule);
+      border-radius: 50%;
+      font-size: clamp(3.5rem, 9vw, 7rem);
+      font-weight: 900;
+    }
+
+    .aside-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: clamp(44px, 8vw, 96px) clamp(18px, 4vw, 56px);
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .section-heading {
+      margin-bottom: clamp(34px, 6vw, 78px);
+      font-size: clamp(3.4rem, 9vw, 10rem);
+      font-weight: 900;
+      line-height: 0.86;
+      text-transform: uppercase;
+    }
+
+    .what-grid {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.27fr) minmax(0, 0.73fr);
+      gap: clamp(24px, 5vw, 78px);
+    }
+
+    .label {
+      font-size: clamp(1.5rem, 3vw, 3.4rem);
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .body-large {
+      max-width: 1060px;
+      margin-bottom: 0;
+      font-size: clamp(1.45rem, 3.4vw, 4rem);
+      font-weight: 900;
+      line-height: 1.02;
+    }
+
+    .why-list {
+      display: grid;
+      gap: 0;
+      border-top: 2px solid var(--rule);
+    }
+
+    .why-item {
+      display: grid;
+      grid-template-columns: minmax(84px, 0.13fr) minmax(0, 0.34fr) minmax(0, 0.53fr);
+      gap: clamp(20px, 4vw, 68px);
+      padding: clamp(28px, 5vw, 66px) 0;
+      border-bottom: 2px solid var(--rule);
+    }
+
+    .why-number {
+      font-size: clamp(2rem, 5vw, 6rem);
+      font-weight: 900;
+      line-height: 0.9;
+    }
+
+    .why-title {
+      margin-bottom: 0;
+      font-size: clamp(1.75rem, 3.6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+    }
+
+    .why-text {
+      display: grid;
+      gap: 26px;
+      align-content: start;
+    }
+
+    .why-text blockquote {
+      margin-bottom: 0;
+      font-size: clamp(1.2rem, 2vw, 2rem);
+      font-weight: 900;
+      line-height: 1.08;
+    }
+
+    .quote-credit {
+      display: block;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .why-text p {
+      max-width: 760px;
+      margin-bottom: 0;
+      color: #222;
+      font-size: clamp(1rem, 1.35vw, 1.28rem);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .visual-band {
+      padding: 0;
+      border-bottom: 2px solid var(--rule);
+      background: var(--ink);
+    }
+
+    .visual-band img {
+      width: 100%;
+      height: clamp(250px, 42vw, 560px);
+      object-fit: cover;
+      filter: grayscale(100%) contrast(1.1);
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 2px solid var(--rule);
+      border-left: 2px solid var(--rule);
+    }
+
+    .note {
+      min-height: 310px;
+      padding: clamp(22px, 3vw, 38px);
+      border-right: 2px solid var(--rule);
+      border-bottom: 2px solid var(--rule);
+      background: var(--white);
+    }
+
+    .note cite {
+      display: block;
       margin-bottom: 22px;
-      color: rgba(255, 255, 255, 0.75);
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-style: normal;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .note p {
+      margin-bottom: 0;
+      font-size: clamp(1.1rem, 1.7vw, 1.7rem);
+      font-weight: 900;
+      line-height: 1.12;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.4fr);
+      gap: clamp(26px, 5vw, 80px);
+      align-items: end;
+      padding: clamp(42px, 7vw, 82px) clamp(18px, 4vw, 56px);
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .contact h2 {
+      max-width: 820px;
+      margin-bottom: 0;
+      font-size: clamp(3rem, 8vw, 8rem);
+      font-weight: 900;
+      line-height: 0.88;
+      text-transform: uppercase;
+    }
+
+    .contact-panel {
+      display: grid;
+      gap: 24px;
+      font-weight: 900;
+    }
+
+    .contact-panel a {
+      color: var(--paper);
     }
 
     .footer {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
-      gap: 24px;
-      align-items: center;
-      padding: 34px clamp(20px, 4vw, 56px);
-      color: rgba(255, 255, 255, 0.76);
-      background: #0e1815;
-      font-size: 0.94rem;
-    }
-
-    .footer strong {
-      color: var(--white);
+      gap: 20px;
+      padding: 22px clamp(18px, 4vw, 56px);
+      border-top: 2px solid var(--paper);
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
     }
 
     .footer-links {
       display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      font-weight: 800;
+      gap: 22px;
     }
 
     @media (max-width: 900px) {
-      .nav {
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: 94vh;
-        padding-top: 104px;
-      }
-
-      .below-hero,
-      .split,
-      .pillars,
-      .quote-grid,
+      .hero,
+      .hero-bottom,
+      .what-grid,
+      .why-item,
+      .contact,
       .footer {
         grid-template-columns: 1fr;
       }
 
-      .metric,
-      .metric:last-child {
-        border-right: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+      .hero {
+        min-height: auto;
       }
 
-      .metric:last-child {
-        border-bottom: 0;
+      .hero-aside {
+        min-height: auto;
+        border-top: 2px solid var(--rule);
+        border-left: 0;
+        padding-top: 28px;
+        padding-left: 0;
       }
 
-      .pillar {
-        min-height: 220px;
+      .stamp {
+        width: 160px;
+      }
+
+      .notes {
+        grid-template-columns: 1fr;
       }
     }
 
-    @media (max-width: 560px) {
-      .brand span:last-child {
-        max-width: 180px;
+    @media (max-width: 620px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
-      .button {
+      .nav-links {
         width: 100%;
+        justify-content: space-between;
+        gap: 12px;
       }
 
-      .hero::before {
-        background:
-          linear-gradient(180deg, rgba(8, 24, 21, 0.54) 0%, rgba(8, 24, 21, 0.9) 74%),
-          url("assets/meridian-fellowship-hero.png") 62% center / cover no-repeat;
-      }
-
-      .program-list li {
-        grid-template-columns: 1fr;
+      .apply-link {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="site-shell">
-    <header class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="The Meridian Fellowship home">
-        <span class="brand-mark">M</span>
-        <span>The Meridian Fellowship</span>
-      </a>
-      <nav class="nav-links" aria-label="Main menu">
-        <a href="#program">Program</a>
-        <a href="#pillars">Pillars</a>
+  <div class="page">
+    <header class="nav">
+      <a class="brand" href="#top">The Meridian Fellowship</a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#faq">FAQ</a>
         <a href="#apply">Apply</a>
       </nav>
     </header>
 
     <main id="top">
-      <section class="hero" aria-label="The Meridian Fellowship">
-        <div class="hero-content">
-          <p class="eyebrow">A civic leadership nonprofit</p>
-          <h1>The Meridian Fellowship</h1>
-          <p class="hero-copy">We equip emerging leaders with mentorship, field-tested tools, and a lifelong community dedicated to building stronger, more imaginative public life.</p>
-          <div class="hero-actions" aria-label="Primary actions">
-            <a class="button button-primary" href="#apply">Join the fellowship</a>
-            <a class="button button-secondary" href="#program">Explore the program</a>
+      <section class="hero" aria-label="The Meridian Fellowship introduction">
+        <div class="hero-copy">
+          <h1 class="intro">The Meridian Fellowship gives emerging civic leaders room to build what communities need next.</h1>
+          <div class="hero-bottom">
+            <p>One year. A serious network. Some public work cannot wait for permission.</p>
+            <a class="apply-link" href="#apply">Apply Now</a>
           </div>
         </div>
-        <div class="below-hero" aria-label="Program highlights">
-          <div class="metric">
-            <strong>12</strong>
-            <span>Months of guided leadership formation</span>
-          </div>
-          <div class="metric">
-            <strong>24</strong>
-            <span>Fellows selected for each annual cohort</span>
-          </div>
-          <div class="metric">
-            <strong>1:1</strong>
-            <span>Mentorship with experienced civic builders</span>
-          </div>
+        <aside class="hero-aside" aria-label="Program snapshot">
+          <div class="stamp">M</div>
+          <p class="aside-note">A nonprofit fellowship for founders, organizers, educators, and builders of public life.</p>
+        </aside>
+      </section>
+
+      <section class="section" id="faq">
+        <div class="what-grid">
+          <h2 class="label">What</h2>
+          <p class="body-large">The Meridian Fellowship is a year-long program for people building institutions, projects, and coalitions that make civic life more capable, humane, and free.</p>
         </div>
       </section>
 
-      <section id="program">
-        <div class="section-inner split">
-          <div>
-            <p class="section-kicker">The Program</p>
-            <h2>A year for people ready to serve with clarity.</h2>
-            <p class="lead">The Meridian Fellowship is designed for nonprofit founders, organizers, educators, public-interest technologists, and community leaders who want to turn conviction into durable institutions.</p>
-          </div>
-          <ol class="program-list">
-            <li>
-              <span class="number">01</span>
-              <div>
-                <h3>Discern the work</h3>
-                <p>Fellows begin with a practical inquiry into place, power, obligation, and the communities they are called to serve.</p>
-              </div>
-            </li>
-            <li>
-              <span class="number">02</span>
-              <div>
-                <h3>Build alongside mentors</h3>
-                <p>Monthly intensives pair strategy, governance, fundraising, communications, and personal leadership practice.</p>
-              </div>
-            </li>
-            <li>
-              <span class="number">03</span>
-              <div>
-                <h3>Launch a civic project</h3>
-                <p>Each fellow leaves with a tested initiative, a clearer operating model, and a network committed to their next chapter.</p>
-              </div>
-            </li>
-          </ol>
+      <section class="section" aria-labelledby="why-heading">
+        <h2 class="section-heading" id="why-heading">Why</h2>
+        <div class="why-list">
+          <article class="why-item">
+            <div class="why-number">01</div>
+            <h3 class="why-title">A different path for service</h3>
+            <div class="why-text">
+              <blockquote>"The place God calls you to is the place where your deep gladness and the world's deep hunger meet."<span class="quote-credit">Frederick Buechner</span></blockquote>
+              <p>Many people feel called to serve before they have a clean title, a polished institution, or a perfect plan. The fellowship gives them disciplined time to clarify the work and the courage to begin.</p>
+            </div>
+          </article>
+
+          <article class="why-item">
+            <div class="why-number">02</div>
+            <h3 class="why-title">Freedom to do the work</h3>
+            <div class="why-text">
+              <blockquote>"Never doubt that a small group of thoughtful, committed citizens can change the world."<span class="quote-credit">Margaret Mead</span></blockquote>
+              <p>Fellows receive mentorship, practical formation, and project support without being forced into a single model. We help clear the path so builders can focus on the work only they can do.</p>
+            </div>
+          </article>
+
+          <article class="why-item">
+            <div class="why-number">03</div>
+            <h3 class="why-title">The network is the work</h3>
+            <div class="why-text">
+              <blockquote>"We cannot live only for ourselves. A thousand fibers connect us with our fellow men."<span class="quote-credit">Herman Melville</span></blockquote>
+              <p>The hardest part of public leadership is rarely talent. It is finding the right collaborators, advisors, funders, and peers at the right time. Meridian surrounds fellows with people who can help.</p>
+            </div>
+          </article>
         </div>
       </section>
 
-      <section id="pillars" class="band">
-        <div class="section-inner">
-          <p class="section-kicker">What We Cultivate</p>
-          <h2>Four practices for leadership that lasts.</h2>
-          <div class="pillars">
-            <article class="pillar">
-              <span class="pillar-icon">N</span>
-              <h3>Neighborly imagination</h3>
-              <p>Seeing the whole person, the whole block, and the whole system before rushing to solutions.</p>
-            </article>
-            <article class="pillar">
-              <span class="pillar-icon">S</span>
-              <h3>Strategic craft</h3>
-              <p>Turning values into repeatable decisions, resilient programs, and clear measures of progress.</p>
-            </article>
-            <article class="pillar">
-              <span class="pillar-icon">C</span>
-              <h3>Common life</h3>
-              <p>Practicing disagreement, cooperation, and institution-building across lines of difference.</p>
-            </article>
-            <article class="pillar">
-              <span class="pillar-icon">R</span>
-              <h3>Rooted renewal</h3>
-              <p>Building from local strengths so communities can grow without losing their memory or dignity.</p>
-            </article>
-          </div>
+      <section class="visual-band" aria-label="Meridian Fellowship community">
+        <img src="assets/meridian-fellowship-hero.png" alt="Fellows collaborating in a civic workshop setting">
+      </section>
+
+      <section class="section" aria-labelledby="notes-heading">
+        <h2 class="section-heading" id="notes-heading">As built for</h2>
+        <div class="notes">
+          <article class="note">
+            <cite>Founders</cite>
+            <p>For people starting nonprofits, civic ventures, mutual aid projects, and mission-driven institutions.</p>
+          </article>
+          <article class="note">
+            <cite>Organizers</cite>
+            <p>For leaders bringing neighbors, congregations, schools, and local partners into durable common work.</p>
+          </article>
+          <article class="note">
+            <cite>Builders</cite>
+            <p>For operators who believe public life improves when people make useful things together.</p>
+          </article>
         </div>
       </section>
 
-      <section id="apply" class="quote-section">
-        <div class="section-inner quote-grid">
-          <div>
-            <blockquote>Leadership is not a spotlight. It is the patient art of helping people find a shared horizon.</blockquote>
-            <p class="quote-credit">The Meridian Fellowship</p>
-          </div>
-          <aside class="application-box" aria-label="Application information">
-            <h3>Applications open soon</h3>
-            <p>Nominate an emerging civic leader or join the interest list for the next Meridian Fellowship cohort.</p>
-            <a class="button button-primary" href="mailto:hello@meridianfellowship.org">Contact us</a>
-          </aside>
+      <section class="contact" id="apply" aria-label="Apply">
+        <h2>Applications open soon.</h2>
+        <div class="contact-panel">
+          <p>Nominate a leader, ask about partnership, or join the interest list for the first Meridian Fellowship cohort.</p>
+          <a class="apply-link" href="mailto:hello@meridianfellowship.org">Contact Us</a>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <div><strong>The Meridian Fellowship</strong> advances civic leadership for communities in motion.</div>
+      <div>&copy; 2026 The Meridian Fellowship. All rights reserved.</div>
       <div class="footer-links">
-        <a href="mailto:hello@meridianfellowship.org">Email</a>
-        <a href="#top">Back to top</a>
+        <a href="#apply">Apply Now</a>
+        <a href="#top">Top</a>
       </div>
     </footer>
   </div>
