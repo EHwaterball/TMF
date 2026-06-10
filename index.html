@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The Meridian Fellowship gives emerging civic leaders the time, mentorship, and network to build stronger public life.">
+  <meta name="description" content="The Meridian Fellowship is a two-year mentorship program investing in exceptional students today to build the leaders of tomorrow.">
   <title>The Meridian Fellowship</title>
   <style>
     :root {
@@ -187,6 +187,13 @@
       gap: clamp(24px, 5vw, 78px);
     }
 
+    .thesis-layout {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.24fr) minmax(0, 0.76fr);
+      gap: clamp(26px, 5vw, 78px);
+      align-items: start;
+    }
+
     .label {
       font-size: clamp(1.5rem, 3vw, 3.4rem);
       font-weight: 900;
@@ -199,6 +206,56 @@
       font-size: clamp(1.45rem, 3.4vw, 4rem);
       font-weight: 900;
       line-height: 1.02;
+    }
+
+    .thesis-stack {
+      display: grid;
+      gap: clamp(18px, 2.5vw, 30px);
+    }
+
+    .thesis-lede {
+      max-width: 980px;
+      margin-bottom: 0;
+      font-size: clamp(2rem, 5vw, 5.5rem);
+      font-weight: 900;
+      line-height: 0.95;
+    }
+
+    .thesis-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-top: 2px solid var(--rule);
+      border-left: 2px solid var(--rule);
+    }
+
+    .thesis-card {
+      min-height: 250px;
+      padding: clamp(22px, 3vw, 36px);
+      border-right: 2px solid var(--rule);
+      border-bottom: 2px solid var(--rule);
+      background: var(--white);
+    }
+
+    .thesis-card.wide {
+      grid-column: 1 / -1;
+      min-height: 220px;
+      background: var(--paper);
+    }
+
+    .thesis-card strong {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .thesis-card p {
+      margin-bottom: 0;
+      font-size: clamp(1.05rem, 1.55vw, 1.55rem);
+      font-weight: 800;
+      line-height: 1.28;
     }
 
     .why-list {
@@ -355,6 +412,7 @@
       .hero,
       .hero-bottom,
       .what-grid,
+      .thesis-layout,
       .why-item,
       .contact,
       .footer {
@@ -379,6 +437,14 @@
 
       .notes {
         grid-template-columns: 1fr;
+      }
+
+      .thesis-card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .thesis-card.wide {
+        grid-column: auto;
       }
     }
 
@@ -405,7 +471,7 @@
     <header class="nav">
       <a class="brand" href="#top">The Meridian Fellowship</a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#faq">FAQ</a>
+        <a href="#thesis">Our Thesis</a>
         <a href="#apply">Apply</a>
       </nav>
     </header>
@@ -413,22 +479,50 @@
     <main id="top">
       <section class="hero" aria-label="The Meridian Fellowship introduction">
         <div class="hero-copy">
-          <h1 class="intro">The Meridian Fellowship gives emerging civic leaders room to build what communities need next.</h1>
+          <h1 class="intro">2 years. Investing in exceptional students today to build the leaders of tomorrow.</h1>
           <div class="hero-bottom">
-            <p>One year. A serious network. Some public work cannot wait for permission.</p>
+            <p>Talent is universal. Opportunity is not. Our mission is to close that gap.</p>
             <a class="apply-link" href="#apply">Apply Now</a>
           </div>
         </div>
         <aside class="hero-aside" aria-label="Program snapshot">
           <div class="stamp">M</div>
-          <p class="aside-note">A nonprofit fellowship for founders, organizers, educators, and builders of public life.</p>
+          <p class="aside-note">A nonprofit fellowship connecting high-achieving college mentors with promising high school students.</p>
         </aside>
       </section>
 
-      <section class="section" id="faq">
-        <div class="what-grid">
-          <h2 class="label">What</h2>
-          <p class="body-large">The Meridian Fellowship is a year-long program for people building institutions, projects, and coalitions that make civic life more capable, humane, and free.</p>
+      <section class="section" id="thesis">
+        <div class="thesis-layout">
+          <h2 class="label">Our Thesis</h2>
+          <div class="thesis-stack">
+            <p class="thesis-lede">Talent is evenly distributed. Opportunity is not.</p>
+            <div class="thesis-card-grid">
+              <article class="thesis-card wide">
+                <strong>The gap</strong>
+                <p>Every year, thousands of exceptional students possess the intelligence, work ethic, and ambition to succeed at the nation's top universities. Yet many never realize their potential, not because of a lack of ability, but because they lack access to guidance, mentorship, and the networks that often shape educational outcomes.</p>
+              </article>
+              <article class="thesis-card">
+                <strong>Why education</strong>
+                <p>We believe education remains the most powerful force for individual advancement and societal progress. When a talented student is given the tools, knowledge, and support to pursue their highest aspirations, the impact extends far beyond a single acceptance letter.</p>
+              </article>
+              <article class="thesis-card">
+                <strong>The model</strong>
+                <p>Our model is simple: connect high-achieving college students with promising high school students from underserved backgrounds through one-on-one mentorship, application guidance, academic support, and personal development.</p>
+              </article>
+              <article class="thesis-card">
+                <strong>The network</strong>
+                <p>We are building a network where those who have recently walked the path reach back and help the next generation climb higher.</p>
+              </article>
+              <article class="thesis-card">
+                <strong>The cycle</strong>
+                <p>Our goal is not simply to help students gain admission to top universities. It is to create a cycle of opportunity where today's mentees become tomorrow's mentors, leaders, innovators, and changemakers.</p>
+              </article>
+              <article class="thesis-card wide">
+                <strong>The belief</strong>
+                <p>We believe that changing a student's trajectory can change a family's future. Changing thousands of trajectories can change the world.</p>
+              </article>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -437,51 +531,51 @@
         <div class="why-list">
           <article class="why-item">
             <div class="why-number">01</div>
-            <h3 class="why-title">A different path for service</h3>
+            <h3 class="why-title">Talent is universal</h3>
             <div class="why-text">
-              <blockquote>"The place God calls you to is the place where your deep gladness and the world's deep hunger meet."<span class="quote-credit">Frederick Buechner</span></blockquote>
-              <p>Many people feel called to serve before they have a clean title, a polished institution, or a perfect plan. The fellowship gives them disciplined time to clarify the work and the courage to begin.</p>
+              <blockquote>"Talent is universal. Opportunity is not. Our mission is to close that gap."</blockquote>
+              <p>The Meridian Fellowship exists for students with uncommon drive who deserve uncommon access to mentorship, preparation, and opportunity.</p>
             </div>
           </article>
 
           <article class="why-item">
             <div class="why-number">02</div>
-            <h3 class="why-title">Freedom to do the work</h3>
+            <h3 class="why-title">Prepare for the future</h3>
             <div class="why-text">
-              <blockquote>"Never doubt that a small group of thoughtful, committed citizens can change the world."<span class="quote-credit">Margaret Mead</span></blockquote>
-              <p>Fellows receive mentorship, practical formation, and project support without being forced into a single model. We help clear the path so builders can focus on the work only they can do.</p>
+              <blockquote>"The future belongs to those who prepare for it today."<span class="quote-credit">Malcolm X</span></blockquote>
+              <p>For two years, fellows build the academic confidence, application strategy, and personal discipline needed to compete at the highest level.</p>
             </div>
           </article>
 
           <article class="why-item">
             <div class="why-number">03</div>
-            <h3 class="why-title">The network is the work</h3>
+            <h3 class="why-title">Education changes everything</h3>
             <div class="why-text">
-              <blockquote>"We cannot live only for ourselves. A thousand fibers connect us with our fellow men."<span class="quote-credit">Herman Melville</span></blockquote>
-              <p>The hardest part of public leadership is rarely talent. It is finding the right collaborators, advisors, funders, and peers at the right time. Meridian surrounds fellows with people who can help.</p>
+              <blockquote>"Education is the most powerful weapon which you can use to change the world."<span class="quote-credit">Nelson Mandela</span></blockquote>
+              <p>When students gain access to the right support, their success can ripple outward to families, schools, neighborhoods, and generations.</p>
             </div>
           </article>
         </div>
       </section>
 
       <section class="visual-band" aria-label="Meridian Fellowship community">
-        <img src="assets/meridian-fellowship-hero.png" alt="Fellows collaborating in a civic workshop setting">
+        <img src="assets/meridian-fellowship-hero.png" alt="Students and mentors collaborating in a workshop setting">
       </section>
 
       <section class="section" aria-labelledby="notes-heading">
         <h2 class="section-heading" id="notes-heading">As built for</h2>
         <div class="notes">
           <article class="note">
-            <cite>Founders</cite>
-            <p>For people starting nonprofits, civic ventures, mutual aid projects, and mission-driven institutions.</p>
+            <cite>Students</cite>
+            <p>For students with the ambition to pursue selective universities and the discipline to grow into leadership.</p>
           </article>
           <article class="note">
-            <cite>Organizers</cite>
-            <p>For leaders bringing neighbors, congregations, schools, and local partners into durable common work.</p>
+            <cite>Mentors</cite>
+            <p>For high-achieving college students ready to help promising high school students navigate the path they recently walked.</p>
           </article>
           <article class="note">
-            <cite>Builders</cite>
-            <p>For operators who believe public life improves when people make useful things together.</p>
+            <cite>Families</cite>
+            <p>For communities that know one student's trajectory can reshape what becomes possible for many others.</p>
           </article>
         </div>
       </section>
@@ -489,7 +583,7 @@
       <section class="contact" id="apply" aria-label="Apply">
         <h2>Applications open soon.</h2>
         <div class="contact-panel">
-          <p>Nominate a leader, ask about partnership, or join the interest list for the first Meridian Fellowship cohort.</p>
+          <p>Nominate a student, become a mentor, ask about partnership, or join the interest list for the first Meridian Fellowship cohort.</p>
           <a class="apply-link" href="mailto:hello@meridianfellowship.org">Contact Us</a>
         </div>
       </section>
