@@ -85,8 +85,8 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(250px, 0.34fr);
       gap: clamp(28px, 5vw, 70px);
-      min-height: 78vh;
-      padding: clamp(44px, 8vw, 104px) clamp(18px, 4vw, 56px);
+      min-height: calc(100vh - 78px);
+      padding: clamp(32px, 5.5vw, 70px) clamp(18px, 4vw, 56px);
       border-bottom: 2px solid var(--rule);
     }
 
@@ -99,9 +99,9 @@
 
     .intro {
       max-width: 1000px;
-      font-size: clamp(2.7rem, 8vw, 8.9rem);
+      font-size: clamp(2.25rem, 5.9vw, 6.6rem);
       font-weight: 900;
-      line-height: 0.92;
+      line-height: 0.94;
       letter-spacing: 0;
     }
 
