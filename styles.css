@@ -205,6 +205,12 @@ blockquote {
   text-transform: uppercase;
 }
 
+.page-title.compact {
+  max-width: 860px;
+  font-size: clamp(2.3rem, 5.6vw, 5.8rem);
+  line-height: 0.95;
+}
+
 .split-layout,
 .thesis-layout {
   display: grid;
