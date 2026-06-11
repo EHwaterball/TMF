@@ -442,9 +442,9 @@ blockquote {
 
 .contact-card a {
   overflow-wrap: anywhere;
-  font-size: clamp(1.6rem, 4vw, 4.8rem);
+  font-size: clamp(1.35rem, 2.9vw, 3.4rem);
   font-weight: 900;
-  line-height: 0.95;
+  line-height: 1;
 }
 
 .contact-band {
